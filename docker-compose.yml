@@ -1,0 +1,28 @@
+version: "3.7"
+name: wallet
+
+services:
+    mongo:
+        image: mongo
+        container_name: mongo
+        ports:
+          - 27017:27017
+        volumes:
+          - mongodata:/data/db
+
+    sqlserver:
+         image: mcr.microsoft.com/mssql/server:2022-latest
+         container_name: sqlserver
+         ports:
+           - 1433:1433
+         environment:
+           - MSSQL_SA_PASSWORD=Password@1234
+           - ACCEPT_EULA=Y
+         volumes:
+           - sqlserver:/var/opt/mssql
+
+volumes:
+  mongodata:
+    external: false
+  sqlserver:
+    external: false

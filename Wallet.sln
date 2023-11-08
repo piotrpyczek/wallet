@@ -3,13 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.BackgroundTasks", "ExchangeRates.BackgroundTasks\ExchangeRates.BackgroundTasks.csproj", "{E959A5A4-DD8E-4C55-8846-167EA58FE893}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRates.BackgroundTasks", "ExchangeRates.BackgroundTasks\ExchangeRates.BackgroundTasks.csproj", "{E959A5A4-DD8E-4C55-8846-167EA58FE893}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.API", "ExchangeRates.API\ExchangeRates.API.csproj", "{1022169A-0439-4EEF-B1AB-9C91D6160AD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRates.API", "ExchangeRates.API\ExchangeRates.API.csproj", "{1022169A-0439-4EEF-B1AB-9C91D6160AD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.Domain", "ExchangeRates.Domain\ExchangeRates.Domain.csproj", "{25FA14B5-3E64-4D10-B6A9-05D51586937E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRates.Domain", "ExchangeRates.Domain\ExchangeRates.Domain.csproj", "{25FA14B5-3E64-4D10-B6A9-05D51586937E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.Implementation", "ExchangeRates.Implementation\ExchangeRates.Implementation.csproj", "{E03ECCF6-2E2D-4AF4-A015-D113DD7C7DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRates.Implementation", "ExchangeRates.Implementation\ExchangeRates.Implementation.csproj", "{E03ECCF6-2E2D-4AF4-A015-D113DD7C7DA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExchangeRates", "ExchangeRates", "{67925678-D088-41FD-A28A-8C879C147FA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wallet", "Wallet", "{B1D1FC07-7827-40FC-967F-083CFBF99670}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.API", "Wallet.API\Wallet.API.csproj", "{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Domain", "Wallet.Domain\Wallet.Domain.csproj", "{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Implementation", "Wallet.Implementation\Wallet.Implementation.csproj", "{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Commands", "Wallet.Commands\Wallet.Commands.csproj", "{51D572E7-AC07-44A5-A242-9BFD2B3F7944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Queries", "Wallet.Queries\Wallet.Queries.csproj", "{095DA222-411A-431B-A52B-727429AB6E97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6F6EC46C-0DD5-4D66-9AB0-7F06D8F8F052}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +52,40 @@ Global
 		{E03ECCF6-2E2D-4AF4-A015-D113DD7C7DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E03ECCF6-2E2D-4AF4-A015-D113DD7C7DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E03ECCF6-2E2D-4AF4-A015-D113DD7C7DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D572E7-AC07-44A5-A242-9BFD2B3F7944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D572E7-AC07-44A5-A242-9BFD2B3F7944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D572E7-AC07-44A5-A242-9BFD2B3F7944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D572E7-AC07-44A5-A242-9BFD2B3F7944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{095DA222-411A-431B-A52B-727429AB6E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095DA222-411A-431B-A52B-727429AB6E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095DA222-411A-431B-A52B-727429AB6E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095DA222-411A-431B-A52B-727429AB6E97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E959A5A4-DD8E-4C55-8846-167EA58FE893} = {67925678-D088-41FD-A28A-8C879C147FA6}
+		{1022169A-0439-4EEF-B1AB-9C91D6160AD7} = {67925678-D088-41FD-A28A-8C879C147FA6}
+		{25FA14B5-3E64-4D10-B6A9-05D51586937E} = {67925678-D088-41FD-A28A-8C879C147FA6}
+		{E03ECCF6-2E2D-4AF4-A015-D113DD7C7DA7} = {67925678-D088-41FD-A28A-8C879C147FA6}
+		{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
+		{EA9599D7-05AE-4FB6-9A0A-A977F01F279E} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
+		{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
+		{51D572E7-AC07-44A5-A242-9BFD2B3F7944} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
+		{095DA222-411A-431B-A52B-727429AB6E97} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0D40538-DB7E-4F3F-BE1F-B1DD1BB0F6AE}
