@@ -6,7 +6,7 @@ namespace Wallet.Commands.Wallet.Validators
     {
         public CreateWalletCommandValidator()
         {
-            RuleFor(x => x.Name).NotEmpty();
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(50);
         }
     }
 }

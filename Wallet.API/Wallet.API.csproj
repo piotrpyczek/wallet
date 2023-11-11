@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Exceptions\" />
     <Folder Include="Infrastructure\Migrations\" />
     <Folder Include="Models\" />
   </ItemGroup>

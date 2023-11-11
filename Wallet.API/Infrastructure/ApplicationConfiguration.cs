@@ -42,6 +42,7 @@ namespace Wallet.API.Infrastructure
         private static void AddPipelineBehaviors(IServiceCollection services)
         {
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
         }
 
         private static void AddModules(IServiceCollection services)

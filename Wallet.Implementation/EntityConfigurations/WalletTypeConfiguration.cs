@@ -13,6 +13,7 @@ public class WalletTypeConfiguration : IEntityTypeConfiguration<Domain.Entities.
             .HasColumnName("WalletId");
         
         builder.Property(x => x.Name)
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.HasMany(x=>x.Buckets)

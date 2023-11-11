@@ -14,6 +14,7 @@ namespace Wallet.Implementation.EntityConfigurations
                 .HasColumnName("TransactionId");
 
             builder.Property(x => x.Amount)
+                .HasPrecision(18, 2)
                 .IsRequired();
 
             builder.Property(x => x.Date)

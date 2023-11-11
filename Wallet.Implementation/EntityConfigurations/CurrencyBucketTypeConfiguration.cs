@@ -18,6 +18,7 @@ namespace Wallet.Implementation.EntityConfigurations
 
             builder.Property(x => x.Amount)
                 .HasDefaultValue(0)
+                .HasPrecision(18, 2)
                 .IsRequired();
 
             builder.HasMany(x => x.Transactions)
