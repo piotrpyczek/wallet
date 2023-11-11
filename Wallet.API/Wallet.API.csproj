@@ -21,11 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\Exceptions\" />
     <Folder Include="Infrastructure\Migrations\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Wallet.Commands\Wallet.Commands.csproj" />
     <ProjectReference Include="..\Wallet.Implementation\Wallet.Implementation.csproj" />
     <ProjectReference Include="..\Wallet.Queries\Wallet.Queries.csproj" />

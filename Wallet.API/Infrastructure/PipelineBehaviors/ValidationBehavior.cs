@@ -37,7 +37,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
         if (errorsDictionary.Any())
         {
-            throw new Wallet.Domain.Exceptions.ValidationException(errorsDictionary);
+            throw new Common.Exceptions.ValidationException(errorsDictionary);
         }
 
         return await next();

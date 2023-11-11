@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Wallet.Domain.Exceptions;
+﻿using Common.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using Wallet.Domain.Messaging;
 using Wallet.Implementation;
 

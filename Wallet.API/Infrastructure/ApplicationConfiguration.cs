@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Common.Exceptions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Wallet.API.Infrastructure.PipelineBehaviors;
@@ -13,6 +14,7 @@ namespace Wallet.API.Infrastructure
             services.AddHttpClient();
 
             AddDbContext(services, configuration);
+            AddMiddlewares(services);
             AddPipelineBehaviors(services);
             AddModules(services);
 
@@ -30,6 +32,11 @@ namespace Wallet.API.Infrastructure
             {
                 options.UseSqlServer(configuration.GetConnectionString("WalletDB"), ConfigureSqlOptions);
             });
+        }
+
+        private static void AddMiddlewares(IServiceCollection services)
+        {
+            services.AddSingleton<ExceptionHandlingMiddleware>();
         }
 
         private static void AddPipelineBehaviors(IServiceCollection services)

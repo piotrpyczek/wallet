@@ -1,4 +1,4 @@
-namespace Wallet.Domain.Exceptions;
+namespace Common.Exceptions;
 
 public class NotFoundException : ApplicationException
 {

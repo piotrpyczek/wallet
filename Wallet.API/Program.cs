@@ -1,3 +1,4 @@
+using Common.Exceptions;
 using Wallet.API.Infrastructure;
 using Wallet.API.Infrastructure.Database;
 
@@ -20,6 +21,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandling();
 
 app.UseAuthorization();
 

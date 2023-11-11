@@ -15,20 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExchangeRates", "ExchangeRa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wallet", "Wallet", "{B1D1FC07-7827-40FC-967F-083CFBF99670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.API", "Wallet.API\Wallet.API.csproj", "{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet.API", "Wallet.API\Wallet.API.csproj", "{FF11BBD9-BCB8-4088-A0FF-CC2C0D93540D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Domain", "Wallet.Domain\Wallet.Domain.csproj", "{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet.Domain", "Wallet.Domain\Wallet.Domain.csproj", "{EA9599D7-05AE-4FB6-9A0A-A977F01F279E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Implementation", "Wallet.Implementation\Wallet.Implementation.csproj", "{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet.Implementation", "Wallet.Implementation\Wallet.Implementation.csproj", "{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Commands", "Wallet.Commands\Wallet.Commands.csproj", "{51D572E7-AC07-44A5-A242-9BFD2B3F7944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet.Commands", "Wallet.Commands\Wallet.Commands.csproj", "{51D572E7-AC07-44A5-A242-9BFD2B3F7944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Queries", "Wallet.Queries\Wallet.Queries.csproj", "{095DA222-411A-431B-A52B-727429AB6E97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet.Queries", "Wallet.Queries\Wallet.Queries.csproj", "{095DA222-411A-431B-A52B-727429AB6E97}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6F6EC46C-0DD5-4D66-9AB0-7F06D8F8F052}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{30B7F58C-11B5-4C3D-9850-041B5562C52C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{36C2733F-A4D2-4AD8-B10C-CF19A6217397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +76,10 @@ Global
 		{095DA222-411A-431B-A52B-727429AB6E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{095DA222-411A-431B-A52B-727429AB6E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{095DA222-411A-431B-A52B-727429AB6E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C2733F-A4D2-4AD8-B10C-CF19A6217397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C2733F-A4D2-4AD8-B10C-CF19A6217397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C2733F-A4D2-4AD8-B10C-CF19A6217397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C2733F-A4D2-4AD8-B10C-CF19A6217397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +94,7 @@ Global
 		{F7435BB5-35F8-48D3-9DAE-54EF4CDD9D7B} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
 		{51D572E7-AC07-44A5-A242-9BFD2B3F7944} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
 		{095DA222-411A-431B-A52B-727429AB6E97} = {B1D1FC07-7827-40FC-967F-083CFBF99670}
+		{36C2733F-A4D2-4AD8-B10C-CF19A6217397} = {30B7F58C-11B5-4C3D-9850-041B5562C52C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0D40538-DB7E-4F3F-BE1F-B1DD1BB0F6AE}

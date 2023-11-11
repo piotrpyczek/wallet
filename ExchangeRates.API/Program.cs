@@ -1,3 +1,4 @@
+using Common.Exceptions;
 using ExchangeRates.API.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandling();
 
 app.UseAuthorization();
 

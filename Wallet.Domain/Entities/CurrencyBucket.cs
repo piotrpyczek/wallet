@@ -1,4 +1,4 @@
-﻿using Wallet.Domain.Exceptions;
+﻿using Common.Exceptions;
 using Wallet.Domain.Infrastructure;
 
 namespace Wallet.Domain.Entities;

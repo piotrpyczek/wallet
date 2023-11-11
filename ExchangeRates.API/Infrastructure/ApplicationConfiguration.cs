@@ -1,4 +1,5 @@
 ﻿
+using Common.Exceptions;
 using ExchangeRates.Implementation.Configuration;
 
 namespace ExchangeRates.API.Infrastructure;
@@ -10,6 +11,7 @@ public static class ApplicationConfiguration
         services.AddHttpClient();
 
         AddApplicationOptions(services, configuration);
+        AddMiddlewares(services);
         AddModules(services);
 
         return services;
@@ -18,6 +20,11 @@ public static class ApplicationConfiguration
     private static void AddApplicationOptions(IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<ExchangeRatesDatabaseSettings>(configuration.GetSection(ExchangeRatesDatabaseSettings.Section));
+    }
+
+    private static void AddMiddlewares(IServiceCollection services)
+    {
+        services.AddSingleton<ExceptionHandlingMiddleware>();
     }
 
     private static void AddModules(IServiceCollection services)
