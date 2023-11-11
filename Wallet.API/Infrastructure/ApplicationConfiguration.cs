@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Wallet.API.Infrastructure.PipelineBehaviors;
 using Wallet.Implementation;
 
 namespace Wallet.API.Infrastructure
@@ -11,6 +13,7 @@ namespace Wallet.API.Infrastructure
             services.AddHttpClient();
 
             AddDbContext(services, configuration);
+            AddPipelineBehaviors(services);
             AddModules(services);
 
             return services;
@@ -29,9 +32,15 @@ namespace Wallet.API.Infrastructure
             });
         }
 
+        private static void AddPipelineBehaviors(IServiceCollection services)
+        {
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        }
+
         private static void AddModules(IServiceCollection services)
         {
-
+            Queries.Bootstrap.Register(services);
+            Commands.Bootstrap.Register(services);
         }
     }
 }

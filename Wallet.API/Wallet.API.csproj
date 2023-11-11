@@ -21,12 +21,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Infrastructure\Migrations\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Wallet.Commands\Wallet.Commands.csproj" />
     <ProjectReference Include="..\Wallet.Implementation\Wallet.Implementation.csproj" />
+    <ProjectReference Include="..\Wallet.Queries\Wallet.Queries.csproj" />
   </ItemGroup>
 
 </Project>
