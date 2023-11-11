@@ -10,6 +10,8 @@ namespace Wallet.Implementation
         public DbSet<CurrencyBucket> CurrencyBuckets { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
+        public WalletDbContext(DbContextOptions<WalletDbContext> options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new WalletTypeConfiguration());

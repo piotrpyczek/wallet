@@ -18,15 +18,14 @@ namespace Wallet.API.Infrastructure
 
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
-            static void ConfigureSqlOptions(SqlServerDbContextOptionsBuilder sqlOptions)
+            static void ConfigureSqlOptions(SqlServerDbContextOptionsBuilder options)
             {
-                sqlOptions.MigrationsAssembly(typeof(Program).Assembly.FullName);
-                sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
-            };
+                options.MigrationsAssembly(typeof(Program).Assembly.FullName);
+            }
 
             services.AddDbContext<WalletDbContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("OrderingDB"), ConfigureSqlOptions);
+                options.UseSqlServer(configuration.GetConnectionString("WalletDB"), ConfigureSqlOptions);
             });
         }
 

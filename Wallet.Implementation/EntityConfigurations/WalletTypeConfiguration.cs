@@ -9,6 +9,8 @@ public class WalletTypeConfiguration : IEntityTypeConfiguration<Domain.Entities.
     {
         builder.ToTable("Wallets");
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .HasColumnName("WalletId");
         
         builder.Property(x => x.Name)
             .IsRequired();

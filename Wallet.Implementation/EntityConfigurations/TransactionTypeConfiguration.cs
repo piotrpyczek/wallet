@@ -10,6 +10,8 @@ namespace Wallet.Implementation.EntityConfigurations
         {
             builder.ToTable("Transactions");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+                .HasColumnName("TransactionId");
 
             builder.Property(x => x.Amount)
                 .IsRequired();
@@ -23,9 +25,7 @@ namespace Wallet.Implementation.EntityConfigurations
             builder.Property(x => x.Status)
                 .IsRequired();
 
-            builder.HasOne(x => x.ReferencedTransaction)
-                .WithOne(x => x.ReferencedTransaction)
-                .HasForeignKey<Transaction>(x => x.ReferencedTransactionId);
+            builder.HasOne(x => x.ReferencedTransaction);
         }
     }
 }

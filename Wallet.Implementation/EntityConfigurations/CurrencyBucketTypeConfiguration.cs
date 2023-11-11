@@ -10,7 +10,9 @@ namespace Wallet.Implementation.EntityConfigurations
         {
             builder.ToTable("CurrencyBuckets");
             builder.HasKey(x => x.Id);
-            
+            builder.Property(x => x.Id)
+                .HasColumnName("CurrencyBucketId");
+
             builder.Property(x => x.CurrencyCode)
                 .IsRequired();
 
