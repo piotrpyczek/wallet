@@ -1,4 +1,5 @@
-﻿using ExchangeRates.Domain;
+﻿using Common.Exceptions;
+using ExchangeRates.Domain;
 using ExchangeRates.Implementation.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -38,7 +39,7 @@ public class ExchangeRateService : IExchangeRateService
         if (currentExchangeRate == null)
         {
             logger.LogInformation("Currency {code} exchage rate not found", code);
-            throw new ArgumentException(code);
+            throw new NotFoundException($"Currency {code} exchage rate not found");
         }
 
         return currentExchangeRate;

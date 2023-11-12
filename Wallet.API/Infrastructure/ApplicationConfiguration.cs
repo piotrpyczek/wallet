@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Wallet.API.Infrastructure.PipelineBehaviors;
 using Wallet.Implementation;
+using Wallet.Implementation.Services;
 
 namespace Wallet.API.Infrastructure
 {
@@ -16,6 +17,7 @@ namespace Wallet.API.Infrastructure
             AddDbContext(services, configuration);
             AddMiddlewares(services);
             AddPipelineBehaviors(services);
+            AddServices(services, configuration);
             AddModules(services);
 
             return services;
@@ -43,6 +45,14 @@ namespace Wallet.API.Infrastructure
         {
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
+        }
+
+        private static void AddServices(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddHttpClient<IExchangeRateService, ExchangeRateService>(client =>
+            {
+                client.BaseAddress = new Uri(configuration["ExhangeRatesUrl"]);
+            });
         }
 
         private static void AddModules(IServiceCollection services)

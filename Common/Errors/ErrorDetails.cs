@@ -5,6 +5,8 @@ namespace Common;
 
 public class ErrorDetails : IErrorDetails
 {
+    public ErrorDetails() { }
+
     public ErrorDetails(Exception exception)
     {
         StatusCode = GetStatusCode(exception);
