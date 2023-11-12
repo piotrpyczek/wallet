@@ -3,8 +3,10 @@ using ExchangeRates.Domain;
 using ExchangeRates.Implementation.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using System.Xml.Linq;
 
 namespace ExchangeRates.Implementation;
 
@@ -43,6 +45,23 @@ public class ExchangeRateService : IExchangeRateService
         }
 
         return currentExchangeRate;
+    }
+
+    public async Task<IEnumerable<Currency>> GetCurrenciesAsync()
+    {
+        var currencies = await exchangeRates.Aggregate()
+            .Group(x => x.Code,
+                y => new
+                {
+                    Code = y.Key,
+                    Currency = y.First().Currency
+                }).ToListAsync();
+
+        return currencies.Select(x => new Currency
+        {
+            Code = x.Code,
+            Name = x.Currency
+        });
     }
 
 }

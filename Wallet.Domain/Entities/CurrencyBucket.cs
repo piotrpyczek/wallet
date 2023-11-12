@@ -6,6 +6,7 @@ namespace Wallet.Domain.Entities;
 public class CurrencyBucket : Entity
 {
     public string CurrencyCode { get; set; }
+    public string CurrencyName { get; set; }
 
     public decimal Amount { get; set; }
 
@@ -15,6 +16,12 @@ public class CurrencyBucket : Entity
     public CurrencyBucket()
     {
         transactions = new List<Transaction>();
+    }
+
+    public CurrencyBucket(string currencyCode, string currencyName) : this()
+    {
+        CurrencyCode = currencyCode;
+        CurrencyName = currencyName;
     }
 
     public void ApplyTransaction(Transaction transaction)

@@ -1,4 +1,4 @@
-﻿namespace Wallet.Implementation.DataObjects;
+﻿namespace ExchangeRates.Implementation.DataObjects;
 
 public class ExchangeRateDTO
 {

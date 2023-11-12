@@ -17,6 +17,10 @@ namespace Wallet.Implementation.EntityConfigurations
                 .HasMaxLength(3)
                 .IsRequired();
 
+            builder.Property(x => x.CurrencyName)
+                .HasMaxLength(100)
+                .IsRequired();
+
             builder.Property(x => x.Amount)
                 .HasDefaultValue(0)
                 .HasPrecision(18, 2)

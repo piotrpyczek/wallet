@@ -1,4 +1,5 @@
 ﻿using ExchangeRates.Domain;
+using ExchangeRates.Implementation.DataObjects;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -16,9 +17,28 @@ namespace ExchangeRates.API.Controllers
         }
 
         [HttpGet("{code}")]
-        public async Task<ExchangeRate> GetExchangeRateAsync(string code)
+        public async Task<ExchangeRateDTO> GetExchangeRateAsync(string code)
         {
-            return await exchangeRateService.GetCurrentExchageRateAsync(code);
+            var exchangeRates = await exchangeRateService.GetCurrentExchageRateAsync(code);
+
+            return new ExchangeRateDTO
+            {
+                Code = exchangeRates.Code,
+                Currency = exchangeRates.Currency,
+                ExchangeRate = exchangeRates.Mid
+            };
+        }
+
+        [HttpGet("currencies")]
+        public async Task<IEnumerable<CurrencyDTO>> GetCurrenciesAsync()
+        {
+            var currencies = await exchangeRateService.GetCurrenciesAsync();
+
+            return currencies.Select(x => new CurrencyDTO
+            {
+                Code = x.Code,
+                Currency = x.Name
+            });
         }
     }
 }

@@ -29,4 +29,20 @@ public class ExchangeRateService : IExchangeRateService
 
         return JsonSerializer.Deserialize<ExchangeRateDTO>(exhangeRateResponse, JsonDefaults.CaseInsensitiveOptions)!;
     }
+
+    public async Task<IEnumerable<CurrencyDTO>> GetCurrenciesAsync(CancellationToken cancellationToken = default)
+    {
+        var uri = $"api/ExchangeRates/currencies";
+        var response = await client.GetAsync(uri, cancellationToken);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await response.GetErrorDetailsAsync(cancellationToken);
+            throw new BadRequestException(error.Detail);
+        }
+
+        var exhangeRateResponse = await response.Content.ReadAsStringAsync(cancellationToken);
+
+        return JsonSerializer.Deserialize<IEnumerable<CurrencyDTO>>(exhangeRateResponse, JsonDefaults.CaseInsensitiveOptions)!;
+    }
 }

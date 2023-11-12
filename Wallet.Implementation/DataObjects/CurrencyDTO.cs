@@ -1,8 +1,7 @@
 ﻿namespace Wallet.Implementation.DataObjects;
 
-public class ExchangeRateDTO
+public class CurrencyDTO
 {
     public string Currency { get; set; }
     public string Code { get; set; }
-    public decimal ExchangeRate { get; set; }
 }
