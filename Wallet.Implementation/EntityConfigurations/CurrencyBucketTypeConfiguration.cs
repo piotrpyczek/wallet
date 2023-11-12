@@ -14,6 +14,7 @@ namespace Wallet.Implementation.EntityConfigurations
                 .HasColumnName("CurrencyBucketId");
 
             builder.Property(x => x.CurrencyCode)
+                .HasMaxLength(3)
                 .IsRequired();
 
             builder.Property(x => x.Amount)
@@ -24,6 +25,9 @@ namespace Wallet.Implementation.EntityConfigurations
             builder.HasMany(x => x.Transactions)
                 .WithOne()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Metadata.FindNavigation(nameof(CurrencyBucket.Transactions))
+                .SetPropertyAccessMode(PropertyAccessMode.Field);
         }
     }
 }

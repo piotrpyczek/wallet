@@ -4,7 +4,7 @@ using Wallet.Implementation;
 
 namespace Wallet.API.Infrastructure.PipelineBehaviors;
 
-public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
 {
     private readonly ILogger<TransactionBehavior<TRequest, TResponse>> logger;
     private readonly WalletDbContext context;

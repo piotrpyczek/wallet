@@ -9,17 +9,23 @@ public class CurrencyBucket : Entity
 
     public decimal Amount { get; set; }
 
-    public ICollection<Transaction> Transactions { get; set; }
+    private List<Transaction> transactions;
+    public ICollection<Transaction> Transactions => transactions.AsReadOnly();
+
+    public CurrencyBucket()
+    {
+        transactions = new List<Transaction>();
+    }
 
     public void ApplyTransaction(Transaction transaction)
     {
         // transaction.Amount moze byc ujemna
         if (Amount + transaction.Amount < 0)
         {
-            throw new BadRequestException("Niewystarczająca ilość środków");
+            throw new BadRequestException("Insufficient funds");
         }
 
-        Amount += transaction.Amount; 
-        Transactions.Add(transaction);
+        Amount += transaction.Amount;
+        transactions.Add(transaction);
     }
 }
