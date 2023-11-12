@@ -20,6 +20,7 @@ public class GetWalletByIdQueryHandler : QueryHandler<GetWalletByIdQuery, Wallet
     {
         var wallet = await context.Wallets
             .AsNoTracking()
+            .Include(x => x.Buckets)
             .FirstOrDefaultAsync(x => x.Id == query.Id, cancellationToken: cancellationToken);
 
         if (wallet == null)

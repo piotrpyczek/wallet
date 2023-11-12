@@ -17,7 +17,10 @@ public class GetWalletsQueryHandler : QueryHandler<GetWalletsQuery, IEnumerable<
 
     public override async Task<IEnumerable<WalletDTO>> Handle(GetWalletsQuery query, CancellationToken cancellationToken)
     {
-        var wallets = await context.Wallets.ToListAsync(cancellationToken);
+        var wallets = await context.Wallets
+            .AsNoTracking()
+            .Include(x => x.Buckets)
+            .ToListAsync(cancellationToken);
 
         return wallets.Select(wallet => wallet.ToWalletDTO());
     }

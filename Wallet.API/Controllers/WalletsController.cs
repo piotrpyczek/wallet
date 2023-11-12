@@ -24,9 +24,9 @@ namespace Wallet.API.Controllers
         }
 
         [HttpGet]
-        public Task<IEnumerable<WalletDTO>> GetWalletsAsync([FromQuery] GetWalletsQuery query, CancellationToken cancellationToken)
+        public Task<IEnumerable<WalletDTO>> GetWalletsAsync(CancellationToken cancellationToken)
         {
-            return mediator.Send(query, cancellationToken);
+            return mediator.Send(new GetWalletsQuery(), cancellationToken);
         }
 
         [HttpGet("{walletId:guid}")]
