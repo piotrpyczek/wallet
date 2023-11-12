@@ -1,5 +1,5 @@
 version: "3.7"
-name: wallet
+name: wallet-app
 
 services:
     mongo:
@@ -20,6 +20,39 @@ services:
            - ACCEPT_EULA=Y
          volumes:
            - sqlserver:/var/opt/mssql
+
+    exchangerates-api:
+         image: exchangerates-api-latest
+         container_name: exchangerates-api
+         build:
+           context: .
+           dockerfile: ./ExchangeRates.API/Dockerfile
+         ports:
+           - 5001:80
+         depends_on:
+           - mongo
+    
+    exchangerates-backgroundtasks:
+         image: exchangerates-backgroundtasks-latest
+         container_name: exchangerates-backgroundtasks
+         build:
+           context: .
+           dockerfile: ./ExchangeRates.BackgroundTasks/Dockerfile
+         depends_on:
+           - mongo
+ 
+    wallet-api:
+         image: wallet-api-latest
+         container_name: wallet-api
+         build:
+           context: .
+           dockerfile: ./Wallet.API/Dockerfile
+         ports:
+           - 5002:80
+         depends_on:
+           - sqlserver
+           - exchangerates-api
+
 
 volumes:
   mongodata:

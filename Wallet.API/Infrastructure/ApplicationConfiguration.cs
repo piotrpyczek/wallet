@@ -28,6 +28,7 @@ namespace Wallet.API.Infrastructure
             static void ConfigureSqlOptions(SqlServerDbContextOptionsBuilder options)
             {
                 options.MigrationsAssembly(typeof(Program).Assembly.FullName);
+                options.EnableRetryOnFailure(15, TimeSpan.FromSeconds(30), null);
             }
 
             services.AddDbContext<WalletDbContext>(options =>

@@ -3,10 +3,8 @@ using ExchangeRates.Domain;
 using ExchangeRates.Implementation.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using System.Xml.Linq;
 
 namespace ExchangeRates.Implementation;
 

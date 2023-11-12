@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Wallet.Implementation;
+﻿using Wallet.Implementation;
 
 namespace Wallet.API.Infrastructure.Database
 {
@@ -9,7 +8,9 @@ namespace Wallet.API.Infrastructure.Database
         {
             using var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<WalletDbContext>();
-            context.Database.Migrate();
+            var logger = scope.ServiceProvider.GetService<ILogger<WalletDbContextMigration>>();
+
+            new WalletDbContextMigration().Migrate(context, logger);
 
             return app;
         }
